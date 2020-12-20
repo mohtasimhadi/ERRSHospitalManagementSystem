@@ -1,5 +1,5 @@
 """
-WSGI config for hospitalmanagement project.
+WSGI config for ERRSHospitalManagementSystem project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
