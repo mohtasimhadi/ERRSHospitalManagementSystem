@@ -80,3 +80,19 @@ def patient_signup_view(request):
         return HttpResponseRedirect('patientlogin')
     return render(request,'hospital/patientsignup.html',context=mydict)
 
+def afterlogin_view(request):
+    if is_admin(request.user):
+        return redirect('admin-dashboard')
+    elif is_doctor(request.user):
+        accountapproval=models.Doctor.objects.all().filter(user_id=request.user.id,status=True)
+        if accountapproval:
+            return redirect('doctor-dashboard')
+        else:
+            return render(request,'hospital/doctor_wait_for_approval.html')
+    elif is_patient(request.user):
+        accountapproval=models.Patient.objects.all().filter(user_id=request.user.id,status=True)
+        if accountapproval:
+            return redirect('patient-dashboard')
+        else:
+            return render(request,'hospital/patient_wait_for_approval.html')
+
