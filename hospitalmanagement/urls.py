@@ -86,3 +86,13 @@ urlpatterns +=[
     path('delete-appointment/<int:pk>', views.delete_appointment_view,name=''),
 ]
 
+#PATIENT URLS
+urlpatterns +=[
+
+    path('patient-dashboard', views.patient_dashboard_view,name=''),
+    path('patient-appointment', views.patient_appointment_view,name=''),
+    path('patient-book-appointment', views.patient_book_appointment_view,name=''),
+    path('patient-view-appointment', views.patient_view_appointment_view,name=''),
+    path('patient-discharge', views.patient_discharge_view,name=''),
+
+]
