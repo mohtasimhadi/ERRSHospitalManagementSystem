@@ -4,13 +4,14 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>ERRS/title>
+  <title>ERRS</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 
 
 
@@ -30,6 +31,9 @@
 
 
 
+    /*---------------------------------------
+       Social section
+    -----------------------------------------*/
     footer {
       padding: 0px 0px 0px 0px;
       background-color: black;
@@ -85,8 +89,6 @@
 
 
 
-
-
     body {
 
       padding-left: 240px;
@@ -97,7 +99,7 @@
     }
 
     .menu {
-      background: #00a4ca;
+      background: #5bc995;
       height: 100vh;
       width: 240px;
       position: fixed;
@@ -274,22 +276,22 @@
   <nav class="menu" tabindex="0">
     <div class="smartphone-menu-trigger"></div>
     <header class="avatar">
-      <img src="{% static doctor.profile_pic.url %}" alt="Profile Pic" />
+      <img src="{% static patient.profile_pic.url %}" alt="Profile Pic" />
       <br><br>
-      <h6>Doctor</h6>
+      <h6>Patient</h6>
       <h2>{{request.user.first_name}}</h2>
     </header>
     <ul>
-      <li tabindex="0" class="icon-dashboard"> <a style="color:white; text-decoration:none;" href="/doctor-dashboard"><span>Dashboard</span></a> </li>
-      <li tabindex="0" class="icon-users"> <a style="color:white; text-decoration:none;" href="/doctor-patient"><span>Patient</span></a></li>
-      <li tabindex="0" class="icon-calendar"> <a style="color:white; text-decoration:none;" href="/doctor-appointment"><span>Appointments</span></a></li>
+      <li tabindex="0" class="icon-dashboard"> <a style="color:white; text-decoration:none;" href="/patient-dashboard"><span>Dashboard</span></a> </li>
+      <li tabindex="0" class="icon-calendar"> <a style="color:white; text-decoration:none;" href="/patient-appointment"><span>Appointments</span></a></li>
+      <li tabindex="0" class="icon-users"> <a style="color:white; text-decoration:none;" href="/patient-discharge"><span>Discharge</span></a></li>
     </ul>
   </nav>
   <main>
     <!-- nav start -->
     <div class="bs-example">
       <nav class="navbar navbar-expand-md  navbar-dark fixed-top" style="background:#337AB7;">
-        <a href="/doctor-dashboard" class="navbar-brand">HOSPITAL MANAGEMENT</a>
+        <a href="/patient-dashboard" class="navbar-brand">HOSPITAL MANAGEMENT</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -303,31 +305,31 @@
     </div>
     <!-- nav end -->
     <br><br>
-
     <!-- content start-->
     {% block content %}
-
     {% endblock content %}
     <!-- content end-->
-
-    <br><br><br><br>
+    <br><br><br><br><br><br><br>
     <footer>
-
-
+      <p>
+        <a id="ftr" href="https://facebook.com/sumit.luv/" class="fa fa-facebook"></a>
+        <a id="ftr" href="https://api.whatsapp.com/send?phone=919572181024&text=Hello%20Sumit.%0d%0aHow%20are%20you%20%3f%0d%0aI%20came%20from%20your%20website.&source=&data=#" class="fa fa-whatsapp"></a>
+        <a id="ftr" href="https://instagram.com/sumit.luv" class="fa fa-instagram"></a>
+        <a id="ftr" href="https://twitter.com/sumitkumar1503" class="fa fa-twitter"></a>
+      </p>
       <br>
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12">
             <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
-              <p>ERRS Hospital Management</p>
+              <p>Made in India <br>
+                Copyright &copy; 2020 LazyCoder </p>
             </div>
           </div>
         </div>
       </div>
     </footer>
-
   </main>
-
 
 </body>
 
