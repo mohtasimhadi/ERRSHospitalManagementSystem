@@ -8,6 +8,11 @@ def home_view(request):
         return HttpResponseRedirect('afterlogin')
     return render(request, 'hospital/index.html')
 
+#for showing signup/login button for admin(by sumit)
+def adminclick_view(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect('afterlogin')
+    return render(request,'hospital/adminclick.html')
 
 
 
