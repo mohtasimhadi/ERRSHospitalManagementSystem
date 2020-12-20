@@ -20,4 +20,20 @@ from hospital import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_view, name=''),
+
+    path('adminclick', views.adminclick_view),
+    path('doctorclick', views.doctorclick_view),
+    path('patientclick', views.patientclick_view),
+
+    path('adminsignup', views.admin_signup_view),
+    path('doctorsignup', views.doctor_signup_view,name=''),
+    path('patientsignup', views.patient_signup_view),
+
+    path('adminlogin', LoginView.as_view(template_name='')),
+    path('doctorlogin', LoginView.as_view(template_name='')),
+    path('patientlogin', LoginView.as_view(template_name='')),
+
+    path('afterlogin', views.afterlogin_view, name=''),
+    path('logout', LogoutView.as_view(template_name=''), name=''),
+
 ]
