@@ -80,6 +80,14 @@ def patient_signup_view(request):
         return HttpResponseRedirect('patientlogin')
     return render(request,'hospital/patientsignup.html',context=mydict)
 
+#-----------for checking user is doctor , patient or admin(by sumit)
+def is_admin(user):
+    return user.groups.filter(name='ADMIN').exists()
+def is_doctor(user):
+    return user.groups.filter(name='DOCTOR').exists()
+def is_patient(user):
+    return user.groups.filter(name='PATIENT').exists()
+
 def afterlogin_view(request):
     if is_admin(request.user):
         return redirect('admin-dashboard')
