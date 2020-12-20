@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from hospital import views
 
+#ADMIN URLS
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_view, name=''),
@@ -70,4 +71,28 @@ urlpatterns = [
     path('approve-appointment/<int:pk>', views.approve_appointment_view,name=''),
     path('reject-appointment/<int:pk>', views.reject_appointment_view,name=''),
 ]
+
+#DOCTOR URLS
+urlpatterns +=[
+    path('doctor-dashboard', views.doctor_dashboard_view,name=''),
+
+    path('doctor-patient', views.doctor_patient_view,name=''),
+    path('doctor-view-patient', views.doctor_view_patient_view,name=''),
+    path('doctor-view-discharge-patient',views.doctor_view_discharge_patient_view,name=''),
+
+    path('doctor-appointment', views.doctor_appointment_view,name=''),
+    path('doctor-view-appointment', views.doctor_view_appointment_view,name=''),
+    path('doctor-delete-appointment',views.doctor_delete_appointment_view,name=''),
+    path('delete-appointment/<int:pk>', views.delete_appointment_view,name=''),
+]
+
+#PATIENT URLS
+urlpatterns +=[
+
+    path('patient-dashboard', views.patient_dashboard_view,name=''),
+    path('patient-appointment', views.patient_appointment_view,name=''),
+    path('patient-book-appointment', views.patient_book_appointment_view,name=''),
+    path('patient-view-appointment', views.patient_view_appointment_view,name=''),
+    path('patient-discharge', views.patient_discharge_view,name=''),
+
 ]
