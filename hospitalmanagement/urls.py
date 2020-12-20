@@ -17,7 +17,82 @@ from django.contrib import admin
 from django.urls import path
 from hospital import views
 
+#ADMIN URLS
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_view, name=''),
+
+    path('adminclick', views.adminclick_view),
+    path('doctorclick', views.doctorclick_view),
+    path('patientclick', views.patientclick_view),
+
+    path('adminsignup', views.admin_signup_view),
+    path('doctorsignup', views.doctor_signup_view,name=''),
+    path('patientsignup', views.patient_signup_view),
+
+    path('adminlogin', LoginView.as_view(template_name='')),
+    path('doctorlogin', LoginView.as_view(template_name='')),
+    path('patientlogin', LoginView.as_view(template_name='')),
+
+    path('afterlogin', views.afterlogin_view, name=''),
+    path('logout', LogoutView.as_view(template_name=''), name=''),
+
+
+    path('admin-dashboard', views.admin_dashboard_view,name=''),
+
+    path('admin-doctor', views.admin_doctor_view,name=''),
+    path('admin-view-doctor', views.admin_view_doctor_view,name=''),
+    path('delete-doctor-from-hospital/<int:pk>', views.delete_doctor_from_hospital_view,name=''),
+    path('update-doctor/<int:pk>', views.update_doctor_view,name=''),
+    path('admin-add-doctor', views.admin_add_doctor_view,name=''),
+    path('admin-approve-doctor', views.admin_approve_doctor_view,name=''),
+    path('approve-doctor/<int:pk>', views.approve_doctor_view,name=''),
+    path('reject-doctor/<int:pk>', views.reject_doctor_view,name=''),
+    path('admin-view-doctor-specialisation',views.admin_view_doctor_specialisation_view,name=''),
+
+
+    path('admin-patient', views.admin_patient_view,name=''),
+    path('admin-view-patient', views.admin_view_patient_view,name=''),
+    path('delete-patient-from-hospital/<int:pk>', views.delete_patient_from_hospital_view,name=''),
+    path('update-patient/<int:pk>', views.update_patient_view,name=''),
+    path('admin-add-patient', views.admin_add_patient_view,name=''),
+    path('admin-approve-patient', views.admin_approve_patient_view,name=''),
+    path('approve-patient/<int:pk>', views.approve_patient_view,name=''),
+    path('reject-patient/<int:pk>', views.reject_patient_view,name=''),
+    path('admin-discharge-patient', views.admin_discharge_patient_view,name=''),
+    path('discharge-patient/<int:pk>', views.discharge_patient_view,name=''),
+    path('download-pdf/<int:pk>', views.download_pdf_view,name=''),
+
+
+    path('admin-appointment', views.admin_appointment_view,name=''),
+    path('admin-view-appointment', views.admin_view_appointment_view,name=''),
+    path('admin-add-appointment', views.admin_add_appointment_view,name=''),
+    path('admin-approve-appointment', views.admin_approve_appointment_view,name=''),
+    path('approve-appointment/<int:pk>', views.approve_appointment_view,name=''),
+    path('reject-appointment/<int:pk>', views.reject_appointment_view,name=''),
+]
+
+#DOCTOR URLS
+urlpatterns +=[
+    path('doctor-dashboard', views.doctor_dashboard_view,name=''),
+
+    path('doctor-patient', views.doctor_patient_view,name=''),
+    path('doctor-view-patient', views.doctor_view_patient_view,name=''),
+    path('doctor-view-discharge-patient',views.doctor_view_discharge_patient_view,name=''),
+
+    path('doctor-appointment', views.doctor_appointment_view,name=''),
+    path('doctor-view-appointment', views.doctor_view_appointment_view,name=''),
+    path('doctor-delete-appointment',views.doctor_delete_appointment_view,name=''),
+    path('delete-appointment/<int:pk>', views.delete_appointment_view,name=''),
+]
+
+#PATIENT URLS
+urlpatterns +=[
+
+    path('patient-dashboard', views.patient_dashboard_view,name=''),
+    path('patient-appointment', views.patient_appointment_view,name=''),
+    path('patient-book-appointment', views.patient_book_appointment_view,name=''),
+    path('patient-view-appointment', views.patient_view_appointment_view,name=''),
+    path('patient-discharge', views.patient_discharge_view,name=''),
+
 ]
