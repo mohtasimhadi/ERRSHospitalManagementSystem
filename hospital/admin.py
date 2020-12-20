@@ -1,6 +1,9 @@
 from django.contrib import admin
 
 # Register your models here.
+from hospital.models import Doctor
+
+
 class DoctorAdmin(admin.ModelAdmin):
     pass
 # create the Doctor class later
