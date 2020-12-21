@@ -706,5 +706,5 @@ def patient_discharge_view(request):
 
 
 # ABOUT US AND CONTACT US VIEWS
-def aboutus_view(request):
-    return render(request, 'hospital/aboutus.html')
+def description_view(request):
+    return render(request, 'hospital/description.html')

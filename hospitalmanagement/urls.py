@@ -22,8 +22,7 @@ from hospital import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_view, name=''),
-
-    #path('aboutus', views.aboutus_view()),
+    path('description', views.description_view),
 
     path('adminclick', views.adminclick_view),
     path('doctorclick', views.doctorclick_view),
