@@ -92,7 +92,7 @@ def patient_signup_view(request):
     return render(request, 'hospital/patientsignup.html', context=mydict)
 
 
-#for checking user is doctor , patient or admin
+# for checking user is doctor , patient or admin
 def is_admin(user):
     return user.groups.filter(name='ADMIN').exists()
 
@@ -105,7 +105,7 @@ def is_patient(user):
     return user.groups.filter(name='PATIENT').exists()
 
 
-#AFTER ENTERING CREDENTIALS WE CHECK WHETHER USERNAME AND PASSWORD IS OF ADMIN,DOCTOR OR PATIENT
+# AFTER ENTERING CREDENTIALS WE CHECK WHETHER USERNAME AND PASSWORD IS OF ADMIN,DOCTOR OR PATIENT
 def afterlogin_view(request):
     if is_admin(request.user):
         return redirect('admin-dashboard')
@@ -123,7 +123,7 @@ def afterlogin_view(request):
             return render(request, 'hospital/patient_wait_for_approval.html')
 
 
-#ADMIN RELATED VIEWS START
+# ADMIN RELATED VIEWS START
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_dashboard_view(request):
@@ -333,7 +333,7 @@ def admin_add_patient_view(request):
     return render(request, 'hospital/admin_add_patient.html', context=mydict)
 
 
-#FOR APPROVING PATIENT BY ADMIN
+# FOR APPROVING PATIENT BY ADMIN
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_approve_patient_view(request):
@@ -361,7 +361,7 @@ def reject_patient_view(request, pk):
     return redirect('admin-approve-patient')
 
 
-#FOR DISCHARGING PATIENT BY ADMIN START
+# FOR DISCHARGING PATIENT BY ADMIN START
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_discharge_patient_view(request):

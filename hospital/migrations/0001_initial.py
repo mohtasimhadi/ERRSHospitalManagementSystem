@@ -19,8 +19,7 @@ class Migration(migrations.Migration):
                 ('joindate', models.DateField(auto_now_add=True)),
                 ('mobile', models.CharField(max_length=40)),
                 ('status', models.BooleanField(default=False)),
-                (
-                'user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
@@ -32,8 +31,7 @@ class Migration(migrations.Migration):
                 ('symptoms', models.CharField(max_length=100, null=True)),
                 ('assignedDoctorId', models.PositiveIntegerField()),
                 ('status', models.BooleanField(default=False)),
-                (
-                'user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
@@ -50,8 +48,7 @@ class Migration(migrations.Migration):
                              ('Colon and Rectal Surgeons', 'Colon and Rectal Surgeons')], default='Cardiologist',
                     max_length=50)),
                 ('status', models.BooleanField(default=False)),
-                (
-                'user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
